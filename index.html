@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aplicativo de Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      max-width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .container h2 {
+      text-align: center;
+    }
+    
+    .container input[type="text"],
+    .container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .container input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .container input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    
+    .container p.error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Nome de usuário">
+      <input type="password" id="password" placeholder="Senha">
+      <input type="submit" value="Entrar">
+    </form>
+    <p id="error-message" class="error" style="display: none;"></p>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      
+      if (username === "cl2021" && password === "cl2021") {
+        // Redirecionar para o link após o login
+        window.location.href = "http://130.211.207.151:8501/";
+      } else {
+        document.getElementById("error-message").style.display = "block";
+        document.getElementById("error-message").textContent = "Credenciais inválidas. Tente novamente.";
+      }
+    });
+  </script>
+</body>
+</html>
